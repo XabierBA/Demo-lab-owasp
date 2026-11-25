@@ -39,8 +39,3 @@ dudosas en los JSON.
   `ollama pull llama3.2:3b` y lanza el script. Solo CPU, es lento.
 - **GitHub Actions:** pestaña *Actions* → *Laboratorio LLM* → *Run workflow*.
   Los resultados se descargan como artefacto `resultados-lab`.
-
-## Para presentar en clase
-1. Ejecuta antes `python lab.py all` para tener `results/` generado.
-2. Graba la pantalla de `python lab.py demo` como vídeo de respaldo.
-3. Si falla el directo: `python lab.py replay` o el vídeo.
