@@ -1,0 +1,33 @@
+name: Laboratorio LLM (OWASP)
+
+on:
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: "Ejecuciones por vector/prueba"
+        default: "5"
+
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar Ollama y dependencias
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          pip install -r requirements.txt
+      - name: Arrancar Ollama y descargar el modelo
+        run: |
+          nohup ollama serve > ollama.log 2>&1 &
+          sleep 8
+          ollama pull llama3.2:3b
+      - name: Ejecutar laboratorio
+        run: python lab.py all --runs ${{ github.event.inputs.runs }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: resultados-lab
+          path: results/
