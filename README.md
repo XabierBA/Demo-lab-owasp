@@ -1,6 +1,6 @@
 # Laboratorio OWASP Top 10 LLM: LLM01 / LLM02 / LLM07
 
-Entorno local con **Python + Ollama** (`llama3.2:3b`), sin APIs externas.
+Entorno en Github Actionscon **Python + Ollama** (`llama3.2:3b`), sin APIs externas.
 Reproduce la extracción del *system prompt* (Experimento 1) y la evaluación de
 defensas habituales, delimitadores y filtro regex, con su bypass (Experimento 2).
 
